@@ -1,0 +1,76 @@
+
+{
+  "appName": "Math Focus Kids",
+  "dashboard": {
+    "title": "Escolha uma habilidade para praticar",
+    "review": "Revisar Itens Pendentes",
+    "parentZone": "Área dos Pais",
+    "settings": "Configurações"
+  },
+  "practice": {
+    "submit": "Verificar",
+    "correct": "Correto!",
+    "incorrect": "Tente novamente.",
+    "next": "Próximo",
+    "hint": "Dica",
+    "confidence": "Qual seu nível de certeza?",
+    "confidence_1": "Inseguro",
+    "confidence_2": "Um pouco seguro",
+    "confidence_3": "Muito seguro",
+    "finalAnswer": "A resposta correta era: {{answer}}"
+  },
+  "settings": {
+    "title": "Configurações",
+    "language": "Idioma",
+    "accessibility": "Acessibilidade",
+    "highContrast": "Alto Contraste",
+    "dyslexicFont": "Fonte para Dislexia",
+    "tts": "Leitura em voz alta"
+  },
+  "parent": {
+    "title": "Painel dos Pais",
+    "accuracy": "Precisão por Habilidade",
+    "difficulty": "Evolução da Dificuldade",
+    "focusTime": "Tempo de Foco",
+    "noData": "Não há dados suficientes para exibir os gráficos."
+  },
+  "skills": {
+    "counting": "Contagem",
+    "addition": "Adição",
+    "subtraction": "Subtração",
+    "multiplication": "Multiplicação",
+    "division": "Divisão",
+    "fractions": "Frações",
+    "decimals": "Decimais",
+    "percentages": "Porcentagens",
+    "time": "Horas",
+    "money": "Dinheiro",
+    "measurements": "Medidas"
+  },
+  "notFound": {
+    "title": "Página Não Encontrada",
+    "message": "Opa! A página que você está procurando não existe.",
+    "goHome": "Ir para o Início"
+  },
+  "focusAudio": {
+    "title": "Sons de Foco",
+    "binaural": "Binaural",
+    "isochronic": "Isocrônico",
+    "rain": "Chuva",
+    "play": "Tocar Áudio",
+    "pause": "Pausar Áudio",
+    "stop": "Parar Áudio",
+    "volume": "Volume",
+    "headphoneWarning": "Use fones de ouvido para melhor efeito."
+  },
+  "pomodoro": {
+    "workPhase": "Foco",
+    "breakPhase": "Pausa",
+    "start": "Iniciar Foco",
+    "pause": "Pausar",
+    "reset": "Resetar",
+    "resumeAudio": "Retomar Som",
+    "workDuration": "Tempo de Foco",
+    "breakDuration": "Tempo de Pausa"
+  }
+}

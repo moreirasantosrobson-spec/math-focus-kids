@@ -1,0 +1,76 @@
+
+{
+  "appName": "Math Focus Kids",
+  "dashboard": {
+    "title": "Choose a skill to practice",
+    "review": "Review Due Items",
+    "parentZone": "Parent Zone",
+    "settings": "Settings"
+  },
+  "practice": {
+    "submit": "Check",
+    "correct": "Correct!",
+    "incorrect": "Try again.",
+    "next": "Next",
+    "hint": "Hint",
+    "confidence": "How sure are you?",
+    "confidence_1": "Not sure",
+    "confidence_2": "A little sure",
+    "confidence_3": "Very sure",
+    "finalAnswer": "The correct answer was: {{answer}}"
+  },
+  "settings": {
+    "title": "Settings",
+    "language": "Language",
+    "accessibility": "Accessibility",
+    "highContrast": "High Contrast",
+    "dyslexicFont": "Dyslexic Font",
+    "tts": "Text-to-Speech"
+  },
+  "parent": {
+    "title": "Parent Dashboard",
+    "accuracy": "Accuracy per Skill",
+    "difficulty": "Difficulty Progression",
+    "focusTime": "Focus Time",
+    "noData": "Not enough data to display charts."
+  },
+  "skills": {
+    "counting": "Counting",
+    "addition": "Addition",
+    "subtraction": "Subtraction",
+    "multiplication": "Multiplication",
+    "division": "Division",
+    "fractions": "Fractions",
+    "decimals": "Decimals",
+    "percentages": "Percentages",
+    "time": "Time",
+    "money": "Money",
+    "measurements": "Measurements"
+  },
+  "notFound": {
+    "title": "Page Not Found",
+    "message": "Oops! The page you are looking for does not exist.",
+    "goHome": "Go to Dashboard"
+  },
+  "focusAudio": {
+    "title": "Focus Sounds",
+    "binaural": "Binaural",
+    "isochronic": "Isochronic",
+    "rain": "Rain",
+    "play": "Play Audio",
+    "pause": "Pause Audio",
+    "stop": "Stop Audio",
+    "volume": "Volume",
+    "headphoneWarning": "Use headphones for best effect."
+  },
+  "pomodoro": {
+    "workPhase": "Focus",
+    "breakPhase": "Break",
+    "start": "Start Focus",
+    "pause": "Pause",
+    "reset": "Reset",
+    "resumeAudio": "Resume Sound",
+    "workDuration": "Focus Time",
+    "breakDuration": "Break Time"
+  }
+}

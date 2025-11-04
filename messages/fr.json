@@ -1,0 +1,76 @@
+
+{
+  "appName": "Math Focus Kids",
+  "dashboard": {
+    "title": "Choisissez une compétence à pratiquer",
+    "review": "Réviser les exercices",
+    "parentZone": "Zone Parent",
+    "settings": "Paramètres"
+  },
+  "practice": {
+    "submit": "Vérifier",
+    "correct": "Correct !",
+    "incorrect": "Essayez encore.",
+    "next": "Suivant",
+    "hint": "Indice",
+    "confidence": "À quel point êtes-vous sûr ?",
+    "confidence_1": "Pas sûr",
+    "confidence_2": "Un peu sûr",
+    "confidence_3": "Très sûr",
+    "finalAnswer": "La bonne réponse était : {{answer}}"
+  },
+  "settings": {
+    "title": "Paramètres",
+    "language": "Langue",
+    "accessibility": "Accessibilité",
+    "highContrast": "Contraste élevé",
+    "dyslexicFont": "Police pour dyslexiques",
+    "tts": "Synthèse vocale"
+  },
+  "parent": {
+    "title": "Tableau de Bord Parent",
+    "accuracy": "Précision par Compétence",
+    "difficulty": "Progression de la Difficulté",
+    "focusTime": "Temps de Concentration",
+    "noData": "Pas assez de données pour afficher les graphiques."
+  },
+  "skills": {
+    "counting": "Compter",
+    "addition": "Addition",
+    "subtraction": "Soustraction",
+    "multiplication": "Multiplication",
+    "division": "Division",
+    "fractions": "Fractions",
+    "decimals": "Décimales",
+    "percentages": "Pourcentages",
+    "time": "L'heure",
+    "money": "Argent",
+    "measurements": "Mesures"
+  },
+  "notFound": {
+    "title": "Page non trouvée",
+    "message": "Oups ! La page que vous recherchez n'existe pas.",
+    "goHome": "Aller au tableau de bord"
+  },
+  "focusAudio": {
+    "title": "Sons de Concentration",
+    "binaural": "Binaural",
+    "isochronic": "Isochrone",
+    "rain": "Pluie",
+    "play": "Jouer l'audio",
+    "pause": "Mettre l'audio en pause",
+    "stop": "Arrêter l'audio",
+    "volume": "Volume",
+    "headphoneWarning": "Utilisez un casque pour un meilleur effet."
+  },
+  "pomodoro": {
+    "workPhase": "Concentration",
+    "breakPhase": "Pause",
+    "start": "Démarrer Focus",
+    "pause": "Pause",
+    "reset": "Réinitialiser",
+    "resumeAudio": "Reprendre le Son",
+    "workDuration": "Temps de Focus",
+    "breakDuration": "Temps de Pause"
+  }
+}

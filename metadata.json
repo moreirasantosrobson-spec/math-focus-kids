@@ -1,0 +1,7 @@
+{
+  "name": "Copy of Math Focus Kids",
+  "description": "An educational app designed for children with ADHD and dyscalculia, focusing on teaching math with clarity, short steps, and immediate feedback. It is trilingual (Portuguese, English, French) and features full accessibility options.",
+  "requestFramePermissions": [
+    "microphone"
+  ]
+}

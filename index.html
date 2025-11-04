@@ -1,0 +1,79 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Math Focus Kids</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&family=OpenDyslexic:wght@400;700&display=swap" rel="stylesheet">
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ['Open Sans', 'sans-serif'],
+              opendyslexic: ['OpenDyslexic', 'sans-serif'],
+            },
+            colors: {
+              'primary': '#4A90E2',
+              'primary-dark': '#357ABD',
+              'secondary': '#50E3C2',
+              'background': '#F7F9FA',
+              'text-main': '#333333',
+              'text-light': '#777777',
+              'correct': '#28a745',
+              'incorrect': '#dc3545',
+              'contrast-bg': '#000000',
+              'contrast-text': '#FFFFFF',
+              'contrast-primary': '#FFFF00',
+            }
+          }
+        }
+      }
+    </script>
+    <style>
+      .high-contrast {
+        background-color: theme('colors.contrast-bg');
+        color: theme('colors.contrast-text');
+      }
+      .high-contrast .bg-background { background-color: theme('colors.contrast-bg'); }
+      .high-contrast .text-text-main { color: theme('colors.contrast-text'); }
+      .high-contrast .text-text-light { color: theme('colors.yellow.300'); }
+      .high-contrast button, .high-contrast a { 
+        background-color: theme('colors.contrast-primary'); 
+        color: theme('colors.contrast-bg');
+        border: 2px solid theme('colors.contrast-text');
+      }
+       .high-contrast input {
+        background-color: theme('colors.contrast-bg'); 
+        color: theme('colors.contrast-text');
+        border: 2px solid theme('colors.contrast-primary');
+       }
+      .font-opendyslexic body {
+        font-family: theme('fontFamily.opendyslexic');
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "dexie": "https://aistudiocdn.com/dexie@^4.2.1",
+    "zustand/": "https://aistudiocdn.com/zustand@^5.0.8/",
+    "zustand": "https://aistudiocdn.com/zustand@^5.0.8",
+    "react-router-dom": "https://aistudiocdn.com/react-router-dom@^7.9.5",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
+    "react/": "https://aistudiocdn.com/react@^19.2.0/",
+    "react": "https://aistudiocdn.com/react@^19.2.0",
+    "recharts": "https://aistudiocdn.com/recharts@^3.3.0"
+  }
+}
+</script>
+</head>
+  <body class="bg-background text-text-main">
+    <div id="root"></div>
+    <script type="module" src="/index.tsx"></script>
+  </body>
+</html>
