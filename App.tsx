@@ -11,8 +11,12 @@ import Review from './pages/Review';
 import Settings from './pages/Settings';
 import ParentDashboard from './pages/ParentDashboard';
 import NotFound from './pages/NotFound';
+import { useI18n } from "./stores/i18n";
+import LanguageSwitcher from "./components/LanguageSwitcher";
 
 const App: React.FC = () => {
+  const { t } = useI18n();
+
   const { locale } = useSettingsStore();
   useAccessibility();
 
