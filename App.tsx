@@ -11,6 +11,7 @@ import Review from './pages/Review';
 import Settings from './pages/Settings';
 import ParentDashboard from './pages/ParentDashboard';
 import NotFound from './pages/NotFound';
+import FocusAudioPlayer from "./components/FocusAudioPlayer";
 import { useI18n } from "./stores/i18n";
 import LanguageSwitcher from "./components/LanguageSwitcher";
 
@@ -34,6 +35,7 @@ const App: React.FC = () => {
             <Route path="/:locale/parent" element={<ParentDashboard />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
+          <FocusAudioPlayer />
         </main>
       </div>
     </HashRouter>
