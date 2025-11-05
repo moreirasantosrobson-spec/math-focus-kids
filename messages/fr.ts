@@ -1,0 +1,15 @@
+export default {
+  title: "Math Focus Kids",
+  chooseSkill: "Choisissez une compétence à pratiquer",
+  counting: "Compter",
+  addition: "Addition",
+  subtraction: "Soustraction",
+  multiplication: "Multiplication",
+  division: "Division",
+  decimals: "Décimales",
+  fractions: "Fractions",
+  percentages: "Pourcentages",
+  time: "Temps",
+  money: "Argent",
+  measurements: "Mesures",
+};
