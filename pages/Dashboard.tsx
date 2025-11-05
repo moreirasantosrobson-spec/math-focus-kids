@@ -1,4 +1,4 @@
-
+import LanguageSwitcher from '../components/LanguageSwitcher';
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { useI18n } from '../hooks/useI18n';
