@@ -1,0 +1,15 @@
+export default {
+  title: "Math Focus Kids",
+  chooseSkill: "Choose a skill to practice",
+  counting: "Counting",
+  addition: "Addition",
+  subtraction: "Subtraction",
+  multiplication: "Multiplication",
+  division: "Division",
+  decimals: "Decimals",
+  fractions: "Fractions",
+  percentages: "Percentages",
+  time: "Time",
+  money: "Money",
+  measurements: "Measurements",
+};
