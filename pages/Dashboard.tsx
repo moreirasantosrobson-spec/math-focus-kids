@@ -9,7 +9,8 @@ const Dashboard: React.FC = () => {
 
   return (
     <div className="text-center">
-      <h1 className="text-3xl sm:text-4xl font-bold mb-8 text-text-main">{t('dashboard.title')}</h1>
+      <h1 className="text-2xl font-bold">{t("title")}</h1>
+<LanguageSwitcher />
       <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6">
         {SKILLS_LIST.map((skill) => (
           <Link
