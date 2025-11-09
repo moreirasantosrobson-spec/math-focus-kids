@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react';
+import React, { useEffect } from 'react';
 import { NavLink, useLocation } from 'react-router-dom';
 import { useI18n } from '../hooks/useI18n';
 import LanguageSwitcher from './LanguageSwitcher';
