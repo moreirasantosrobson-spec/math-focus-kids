@@ -1,0 +1,29 @@
+/* Reset simples para remover margens */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Estilo global */
+body {
+  background-color: #111827; /* cinza escuro */
+  color: #fff;
+  font-family: system-ui, sans-serif;
+}
+
+/* botão do player de foco */
+.focus-player-btn {
+  position: fixed;
+  bottom: 18px;
+  right: 18px;
+  padding: 12px 22px;
+  background-color: #2563eb; /* azul */
+  border-radius: 10px;
+  color: white;
+  font-weight: bold;
+  box-shadow: 0 0 15px rgba(0,0,0,0.4);
+}
+.focus-player-btn:hover {
+  background-color: #1d4ed8;
+}
