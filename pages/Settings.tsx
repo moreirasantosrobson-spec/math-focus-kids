@@ -3,7 +3,7 @@ import React from 'react';
 import AccessibilityPanel from '../components/AccessibilityPanel';
 import LanguageSwitcher from '../components/LanguageSwitcher';
 import { useI18n } from '../hooks/useI18n';
-
+import FocusAudioControls from "@/components/FocusAudioControls";
 const Settings: React.FC = () => {
   const { t } = useI18n();
 
