@@ -7,6 +7,7 @@ type ProgressState = {
   isInitialized: boolean;
   initialize: () => Promise<void>;
   addAttempt: (attempt: Attempt) => Promise<void>;
+  clearAttempts: () => Promise<void>;
 };
 
 const STORAGE_KEY = 'mfk_attempts';
@@ -26,7 +27,7 @@ function writeToLocalStorage(attempts: Attempt[]) {
   try {
     localStorage.setItem(STORAGE_KEY, JSON.stringify(attempts));
   } catch {
-    // ignore storage errors
+    // ignore
   }
 }
 
@@ -38,38 +39,44 @@ const useProgressStore = create<ProgressState>((set, get) => ({
     if (get().isInitialized) return;
 
     try {
-      // 1) tenta buscar do IndexedDB (Dexie)
       const attemptsFromDB = await db.attempts.toArray();
       if (attemptsFromDB && attemptsFromDB.length) {
         set({ attempts: attemptsFromDB, isInitialized: true });
-        // mantém localStorage em sincronia
         writeToLocalStorage(attemptsFromDB);
         return;
       }
     } catch {
-      // se o IndexedDB falhar, seguimos para o fallback
+      // segue para fallback
     }
 
-    // 2) fallback: tenta localStorage
     const attemptsFromLS = readFromLocalStorage();
     set({ attempts: attemptsFromLS, isInitialized: true });
   },
 
   addAttempt: async (attempt: Attempt) => {
-    // salva no IndexedDB (se falhar, seguimos sem travar)
     try {
       await db.attempts.add(attempt);
     } catch {
       // ignore
     }
 
-    // atualiza estado em memória
     set((state) => {
       const next = [...state.attempts, attempt];
-      // espelha no localStorage
       writeToLocalStorage(next);
       return { attempts: next };
     });
+  },
+
+  clearAttempts: async () => {
+    // limpa IndexedDB
+    try {
+      await db.attempts.clear();
+    } catch {
+      // ignore
+    }
+    // limpa memória e localStorage
+    set({ attempts: [] });
+    writeToLocalStorage([]);
   },
 }));
 
