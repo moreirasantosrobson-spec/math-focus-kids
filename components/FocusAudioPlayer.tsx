@@ -1,42 +1,44 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef } from "react";
+import { useAudio } from "@/stores/useAudio";
 
 const FocusAudioPlayer: React.FC = () => {
   const audioRef = useRef<HTMLAudioElement | null>(null);
-  const [playing, setPlaying] = useState(false);
+  const { enabled, volume, currentSrc } = useAudio();
 
-  const toggleAudio = () => {
-    if (!audioRef.current) return;
+  // Ao trocar faixa/volume/enable, aplicamos no elemento <audio>
+  useEffect(() => {
+    const el = audioRef.current;
+    if (!el) return;
 
-    if (playing) {
-      audioRef.current.pause();
-    } else {
-      audioRef.current.play();
+    // garantir a fonte correta
+    if (el.src !== window.location.origin + currentSrc) {
+      el.src = currentSrc;
+      el.load();
     }
 
-    setPlaying(!playing);
-  };
+    el.volume = volume;
 
+    if (enabled) {
+      // Tocar só após interação do usuário; se falhar, ignora o erro
+      el.play().catch(() => {});
+    } else {
+      el.pause();
+      el.currentTime = 0;
+    }
+  }, [enabled, volume, currentSrc]);
+
+  // Pausar quando o componente desmontar
   useEffect(() => {
     return () => {
       if (audioRef.current) {
         audioRef.current.pause();
-        audioRef.current.currentTime = 0;
       }
     };
   }, []);
 
   return (
-    <div className="fixed bottom-4 right-4 z-50">
-      <audio ref={audioRef} loop>
-        <source src="/audio/focus-sound.mp3" type="audio/mpeg" />
-      </audio>
-
-      <button
-        onClick={toggleAudio}
-        className="px-4 py-2 rounded-lg bg-primary text-white font-semibold shadow-lg hover:scale-105 transition"
-      >
-        {playing ? "Pausar Som" : "Ativar Foco"}
-      </button>
+    <div className="fixed bottom-4 right-4 z-50 pointer-events-none">
+      <audio ref={audioRef} loop />
     </div>
   );
 };
