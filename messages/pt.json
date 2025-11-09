@@ -19,13 +19,15 @@
     "confidence_3": "Muito seguro",
     "finalAnswer": "A resposta correta era: {{answer}}"
   },
-  "settings": {
-    "title": "Configurações",
-    "language": "Idioma",
-    "accessibility": "Acessibilidade",
-    "highContrast": "Alto Contraste",
-    "dyslexicFont": "Fonte para Dislexia",
-    "tts": "Leitura em voz alta"
+"settings": {
+  "title": "Configurações",
+  "language": "Idioma",
+  "focusAudio": "Áudio de Foco",
+  "play": "Reproduzir",
+  "pause": "Pausar",
+  "volume": "Volume",
+  "selectTrack": "Selecionar Áudio"
+}
   },
   "parent": {
     "title": "Painel dos Pais",
