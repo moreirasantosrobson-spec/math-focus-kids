@@ -1,4 +1,4 @@
-// src/stores/useProgressStore.ts
+// stores/useProgressStore.ts
 import { create } from 'zustand';
 import type { Attempt } from '../types';
 import { db } from '../lib/db';
@@ -34,3 +34,6 @@ export const useProgressStore = create<ProgressState>((set, get) => ({
     set({ attempts: [] });
   },
 }));
+
+// opcional: exportar o tipo
+export type { ProgressState };
