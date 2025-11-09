@@ -1,5 +1,6 @@
+// stores/useProgressStore.ts
 import { create } from 'zustand';
-import { Attempt } from '../types';
+import type { Attempt } from '../types';
 import { db } from '../lib/db';
 
 type ProgressState = {
@@ -10,74 +11,23 @@ type ProgressState = {
   clearAttempts: () => Promise<void>;
 };
 
-const STORAGE_KEY = 'mfk_attempts';
-
-function readFromLocalStorage(): Attempt[] {
-  try {
-    const raw = localStorage.getItem(STORAGE_KEY);
-    if (!raw) return [];
-    const arr = JSON.parse(raw);
-    return Array.isArray(arr) ? arr : [];
-  } catch {
-    return [];
-  }
-}
-
-function writeToLocalStorage(attempts: Attempt[]) {
-  try {
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(attempts));
-  } catch {
-    // ignore
-  }
-}
-
-const useProgressStore = create<ProgressState>((set, get) => ({
+export const useProgressStore = create<ProgressState>((set, get) => ({
   attempts: [],
   isInitialized: false,
 
   initialize: async () => {
     if (get().isInitialized) return;
-
-    try {
-      const attemptsFromDB = await db.attempts.toArray();
-      if (attemptsFromDB && attemptsFromDB.length) {
-        set({ attempts: attemptsFromDB, isInitialized: true });
-        writeToLocalStorage(attemptsFromDB);
-        return;
-      }
-    } catch {
-      // segue para fallback
-    }
-
-    const attemptsFromLS = readFromLocalStorage();
-    set({ attempts: attemptsFromLS, isInitialized: true });
+    const attempts = await db.attempts.toArray();
+    set({ attempts, isInitialized: true });
   },
 
-  addAttempt: async (attempt: Attempt) => {
-    try {
-      await db.attempts.add(attempt);
-    } catch {
-      // ignore
-    }
-
-    set((state) => {
-      const next = [...state.attempts, attempt];
-      writeToLocalStorage(next);
-      return { attempts: next };
-    });
+  addAttempt: async (attempt) => {
+    await db.attempts.add(attempt);
+    set((state) => ({ attempts: [...state.attempts, attempt] }));
   },
 
   clearAttempts: async () => {
-    // limpa IndexedDB
-    try {
-      await db.attempts.clear();
-    } catch {
-      // ignore
-    }
-    // limpa memória e localStorage
+    await db.attempts.clear();
     set({ attempts: [] });
-    writeToLocalStorage([]);
   },
 }));
-
-export default useProgressStore;
