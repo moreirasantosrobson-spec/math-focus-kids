@@ -1,45 +1,32 @@
 import React, { useEffect, useRef } from "react";
-import { useAudio } from "@/stores/useAudio";
+import { useFocusAudio } from "@/stores/useFocusAudio";
 
 const FocusAudioPlayer: React.FC = () => {
   const audioRef = useRef<HTMLAudioElement | null>(null);
-  const { enabled, volume, currentSrc } = useAudio();
 
-  // Ao trocar faixa/volume/enable, aplicamos no elemento <audio>
+  const { src, volume, playing } = useFocusAudio();
+
+  // aplica source e volume quando mudarem
   useEffect(() => {
-    const el = audioRef.current;
-    if (!el) return;
+    if (!audioRef.current) return;
+    audioRef.current.src = src;
+    audioRef.current.volume = volume;
+  }, [src, volume]);
 
-    // garantir a fonte correta
-    if (el.src !== window.location.origin + currentSrc) {
-      el.src = currentSrc;
-      el.load();
-    }
-
-    el.volume = volume;
-
-    if (enabled) {
-      // Tocar só após interação do usuário; se falhar, ignora o erro
-      el.play().catch(() => {});
+  // play/pause quando state mudar
+  useEffect(() => {
+    if (!audioRef.current) return;
+    if (playing) {
+      audioRef.current.play().catch(() => {
+        // alguns browsers bloqueiam autoplay, sem problema
+      });
     } else {
-      el.pause();
-      el.currentTime = 0;
+      audioRef.current.pause();
     }
-  }, [enabled, volume, currentSrc]);
-
-  // Pausar quando o componente desmontar
-  useEffect(() => {
-    return () => {
-      if (audioRef.current) {
-        audioRef.current.pause();
-      }
-    };
-  }, []);
+  }, [playing]);
 
   return (
-    <div className="fixed bottom-4 right-4 z-50 pointer-events-none">
-      <audio ref={audioRef} loop />
-    </div>
+    <audio ref={audioRef} loop preload="auto" />
   );
 };
 
