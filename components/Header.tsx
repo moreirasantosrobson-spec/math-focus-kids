@@ -1,19 +1,28 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useMemo } from 'react';
 import { NavLink, useLocation } from 'react-router-dom';
 import { useI18n } from '../hooks/useI18n';
 import LanguageSwitcher from './LanguageSwitcher';
 import { useProgressStore } from '../stores/useProgressStore';
-import { getDueForReviewItems } from '../services/srs'; 
+import { getDueForReviewItems } from '../services/srs';
 
 const Header: React.FC = () => {
   const { t, locale } = useI18n();
   const location = useLocation();
-  const { attempts, isInitialized } = useProgressStore();
 
+  // agora pegamos initialize também
+  const { attempts, isInitialized, initialize } = useProgressStore();
+
+  // carrega as tentativas ao montar
+  useEffect(() => {
+    if (!isInitialized) initialize();
+  }, [isInitialized, initialize]);
+
+  // por enquanto o stub não usa attempts; só conta os devidos
   const dueForReviewCount = useMemo(() => {
-    if (!isInitialized) return 0;
-    return getDueForReviewItems(attempts).length;
-  }, [attempts, isInitialized]);
+  if (!isInitialized) return 0;
+  return getDueForReviewItems().length;
+}, [isInitialized]);
+
 
   // Don't render header if we don't have a locale yet (e.g., at root path before redirect)
   if (!locale) return null;
