@@ -1,77 +1,76 @@
-
 {
-  "appName": "Math Focus Kids",
-  "dashboard": {
-    "title": "Choisissez une compétence à pratiquer",
-    "review": "Réviser les éléments à revoir",
-    "parentZone": "Espace Parents",
-    "settings": "Paramètres"
-  },
-  "practice": {
-    "submit": "Vérifier",
-    "correct": "Correct !",
-    "incorrect": "Réessayez.",
-    "next": "Suivant",
-    "hint": "Indice",
-    "confidence": "À quel point es-tu sûr(e) ?",
-    "confidence_1": "Peu sûr(e)",
-    "confidence_2": "Un peu sûr(e)",
-    "confidence_3": "Très sûr(e)",
-    "finalAnswer": "La bonne réponse était : {{answer}}"
-  },
-  "settings": {
-    "title": "Paramètres",
-    "language": "Langue",
-    "focusAudio": "Audio de concentration",
-    "play": "Lire",
-    "pause": "Pause",
-    "volume": "Volume",
-    "selectTrack": "Choisir l'audio"
-  },
-  "parent": {
-    "title": "Tableau de bord Parents",
-    "accuracy": "Précision par compétence",
-    "difficulty": "Progression de la difficulté",
-    "focusTime": "Temps de concentration",
-    "noData": "Pas assez de données pour afficher les graphiques."
-  },
-  "skills": {
-    "counting": "Compter",
-    "addition": "Addition",
-    "subtraction": "Soustraction",
-    "multiplication": "Multiplication",
-    "division": "Division",
-    "fractions": "Fractions",
-    "decimals": "Décimales",
-    "percentages": "Pourcentages",
-    "time": "Heure",
-    "money": "Argent",
-    "measurements": "Mesures"
-  },
-  "notFound": {
-    "title": "Page introuvable",
-    "message": "Oups ! La page que vous cherchez n'existe pas.",
-    "goHome": "Aller au tableau de bord"
-  },
-  "focusAudio": {
-    "title": "Sons de concentration",
-    "binaural": "Binaural",
-    "isochronic": "Isochronique",
-    "rain": "Pluie",
-    "play": "Lire l'audio",
-    "pause": "Mettre en pause",
-    "stop": "Arrêter",
-    "volume": "Volume",
-    "headphoneWarning": "Utilisez des écouteurs pour un meilleur effet."
-  },
-  "pomodoro": {
-    "workPhase": "Concentration",
-    "breakPhase": "Pause",
-    "start": "Démarrer la session",
-    "pause": "Pause",
-    "reset": "Réinitialiser",
-    "resumeAudio": "Reprendre le son",
-    "workDuration": "Durée de concentration",
-    "breakDuration": "Durée de pause"
-  }
+"appName": "Math Focus Kids",
+"tableau de bord": {
+"title": "Choisissez une compétence à pratiquer",
+"révision" : "Éléments à réviser",
+"parentZone" : "Zone parents",
+"paramètres" : "Paramètres"
+},
+"pratique": {
+"soumettre" : "Vérifier",
+"Correct" : "Correct !",
+"incorrect": "Réessayez.",
+"suivant" : "Suivant",
+"indice" : "Indice",
+"confiance" : "À quel point en êtes-vous sûr ?",
+"confidence_1": "Je ne suis pas sûr",
+"confidence_2": "Un peu sûr",
+"confidence_3": "Très sûr",
+"finalAnswer": "La bonne réponse était : {{answer}}"
+},
+"paramètres": {
+"titre": "Paramètres",
+"langue" : "Langue",
+"focusAudio": "Focus Audio",
+"jouer" : "Jouer",
+"pause" : "Pause",
+"volume" : "Volume",
+"selectTrack": "Sélectionnez l'audio"
+},
+"parent": {
+"title": "Tableau de bord des parents",
+"précision" : "Précision par compétence",
+"difficulté" : "Progression de la difficulté",
+"focusTime" : "Temps de concentration",
+"noData": "Données insuffisantes pour afficher les graphiques."
+},
+"compétences": {
+"comptage" : "Comptage",
+"addition" : "Addition",
+"soustraction" : "Soustraction",
+"multiplication" : "Multiplication",
+"division" : "Division",
+"fractions" : "Fractions",
+"décimales" : "Décimales",
+"pourcentages" : "Pourcentages",
+"temps" : "Temps",
+"argent" : "Argent",
+"mesures" : "Mesures"
+},
+"notFound": {
+"title": "Page introuvable",
+"message": "Oups ! La page que vous recherchez n'existe pas.",
+"goHome" : "Aller au tableau de bord"
+},
+"focusAudio": {
+"titre": "Focus Sounds",
+"binaural" : "Binaural",
+"isochronique" : "Isochronique",
+"pluie" : "Pluie",
+"play": "Lire l'audio",
+"pause" : "Pause audio",
+"stop" : "Arrêter l'audio",
+"volume" : "Volume",
+"headphoneWarning": "Utilisez des écouteurs pour un meilleur effet."
+},
+"pomodoro": {
+"Phase de travail" : "Focus",
+"breakPhase" : "Pause",
+"démarrer" : "Démarrer la mise au point",
+"pause" : "Pause",
+"réinitialisation": "Réinitialiser",
+"resumeAudio": "Reprendre l'audio",
+"workDuration" : "Durée de concentration",
+"breakDuration" : "Durée de la pause"
+}
 }
