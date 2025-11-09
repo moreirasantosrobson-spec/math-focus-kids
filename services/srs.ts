@@ -1,36 +1,49 @@
+// services/srs.ts
+import type { Attempt } from '../types';
 
-import { Attempt } from '../types';
-import { SRS_INTERVALS } from '../constants';
+/**
+ * Retorna itens “vencidos” para revisão com uma lógica simples:
+ * considera devido 1h após a última tentativa do item.
+ * Você pode melhorar os intervalos depois (SM-2, etc.).
+ */
+export type ReviewItem = { id: string; dueAt: number };
 
-export const getDueForReviewItems = (attempts: Attempt[]): Attempt[] => {
-  const now = Date.now();
-  const oneDay = 24 * 60 * 60 * 1000;
+export function getDueForReviewItems(
+  attempts: Attempt[],
+  now: number = Date.now()
+): ReviewItem[] {
+  // Agrupa pela chave do item (ajuste se seu Attempt tiver outro identificador)
+  const latestByKey = new Map<string, Attempt>();
 
-  const incorrectAttempts = attempts.filter(a => !a.isCorrect);
-  const dueItems: Attempt[] = [];
-  const reviewedIds = new Set<string>();
+  for (const a of attempts || []) {
+    // tente usar um identificador estável; ajuste conforme seu modelo
+    const key =
+      (a as any).itemId ??
+      (a as any).questionId ??
+      (a as any).skill ??
+      (a as any).id ??
+      JSON.stringify(a);
 
-  // Sort by most recent first to prioritize latest attempts on a given exercise
-  incorrectAttempts.sort((a, b) => b.timestamp - a.timestamp);
+    const prev = latestByKey.get(key);
+    const createdAt = (a as any).createdAt ?? 0;
+    const prevCreatedAt = (prev as any)?.createdAt ?? -1;
 
-  for (const attempt of incorrectAttempts) {
-    if (reviewedIds.has(attempt.exerciseId)) {
-      continue;
-    }
-
-    const daysSince = (now - attempt.timestamp) / oneDay;
-
-    for (const interval of SRS_INTERVALS) {
-      if (daysSince >= interval) {
-        dueItems.push(attempt);
-        reviewedIds.add(attempt.exerciseId);
-        break; // Move to the next unique exercise
-      }
+    if (!prev || createdAt > prevCreatedAt) {
+      latestByKey.set(key, a);
     }
   }
 
-  // A real SRS would be more complex, tracking review stages.
-  // This is a simplified version: review anything wrong after 1, 3, or 7 days.
-  // We'll return just the original attempt info to regenerate a similar problem.
-  return dueItems;
-};
+  const result: ReviewItem[] = [];
+  // regra simples: 1 hora após a última tentativa
+  const ONE_HOUR = 60 * 60 * 1000;
+
+  latestByKey.forEach((a, key) => {
+    const last = (a as any).createdAt ?? 0;
+    const dueAt = last + ONE_HOUR;
+    if (dueAt <= now) {
+      result.push({ id: String(key), dueAt });
+    }
+  });
+
+  return result;
+}
