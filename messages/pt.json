@@ -1,40 +1,38 @@
-
 {
   "appName": "Math Focus Kids",
   "dashboard": {
     "title": "Escolha uma habilidade para praticar",
-    "review": "Revisar Itens Pendentes",
-    "parentZone": "Área dos Pais",
+    "review": "Revisar itens pendentes",
+    "parentZone": "Zona dos Pais",
     "settings": "Configurações"
   },
   "practice": {
-    "submit": "Verificar",
+    "submit": "Confirmar",
     "correct": "Correto!",
     "incorrect": "Tente novamente.",
     "next": "Próximo",
     "hint": "Dica",
-    "confidence": "Qual seu nível de certeza?",
+    "confidence": "Quão seguro você está?",
     "confidence_1": "Inseguro",
     "confidence_2": "Um pouco seguro",
     "confidence_3": "Muito seguro",
     "finalAnswer": "A resposta correta era: {{answer}}"
   },
-"settings": {
-  "title": "Configurações",
-  "language": "Idioma",
-  "focusAudio": "Áudio de Foco",
-  "play": "Reproduzir",
-  "pause": "Pausar",
-  "volume": "Volume",
-  "selectTrack": "Selecionar Áudio"
-}
+  "settings": {
+    "title": "Configurações",
+    "language": "Idioma",
+    "focusAudio": "Áudio de Foco",
+    "play": "Reproduzir",
+    "pause": "Pausar",
+    "volume": "Volume",
+    "selectTrack": "Selecionar Áudio"
   },
   "parent": {
     "title": "Painel dos Pais",
-    "accuracy": "Precisão por Habilidade",
-    "difficulty": "Evolução da Dificuldade",
-    "focusTime": "Tempo de Foco",
-    "noData": "Não há dados suficientes para exibir os gráficos."
+    "accuracy": "Precisão por habilidade",
+    "difficulty": "Evolução da dificuldade",
+    "focusTime": "Tempo de foco",
+    "noData": "Sem dados suficientes para exibir os gráficos."
   },
   "skills": {
     "counting": "Contagem",
@@ -45,34 +43,34 @@
     "fractions": "Frações",
     "decimals": "Decimais",
     "percentages": "Porcentagens",
-    "time": "Horas",
+    "time": "Tempo",
     "money": "Dinheiro",
     "measurements": "Medidas"
   },
   "notFound": {
-    "title": "Página Não Encontrada",
-    "message": "Opa! A página que você está procurando não existe.",
-    "goHome": "Ir para o Início"
+    "title": "Página não encontrada",
+    "message": "Oops! A página que você procura não existe.",
+    "goHome": "Voltar ao painel"
   },
   "focusAudio": {
-    "title": "Sons de Foco",
+    "title": "Sons para Foco",
     "binaural": "Binaural",
     "isochronic": "Isocrônico",
     "rain": "Chuva",
-    "play": "Tocar Áudio",
-    "pause": "Pausar Áudio",
-    "stop": "Parar Áudio",
+    "play": "Reproduzir áudio",
+    "pause": "Pausar áudio",
+    "stop": "Parar",
     "volume": "Volume",
     "headphoneWarning": "Use fones de ouvido para melhor efeito."
   },
   "pomodoro": {
     "workPhase": "Foco",
     "breakPhase": "Pausa",
-    "start": "Iniciar Foco",
+    "start": "Iniciar foco",
     "pause": "Pausar",
-    "reset": "Resetar",
-    "resumeAudio": "Retomar Som",
-    "workDuration": "Tempo de Foco",
-    "breakDuration": "Tempo de Pausa"
+    "reset": "Reiniciar",
+    "resumeAudio": "Retomar áudio",
+    "workDuration": "Tempo de foco",
+    "breakDuration": "Tempo de pausa"
   }
 }
