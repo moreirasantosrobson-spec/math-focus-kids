@@ -2,7 +2,9 @@ import React from 'react';
 import AccessibilityPanel from '../components/AccessibilityPanel';
 import LanguageSwitcher from '../components/LanguageSwitcher';
 import { useI18n } from '../hooks/useI18n';
-import FocusAudioPlayer from '../components/FocusAudioPlayer'; // ✅ player de foco correto
+
+// ⬇️ estes são os CONTROLES que aparecem na tela de Settings
+import FocusAudioControls from '../components/FocusAudioControls';
 
 const Settings: React.FC = () => {
   const { t } = useI18n();
@@ -13,6 +15,7 @@ const Settings: React.FC = () => {
         {t('settings.title')}
       </h1>
 
+      {/* Idioma */}
       <div className="space-y-2">
         <h2 className="text-2xl font-semibold text-text-main">
           {t('settings.language')}
@@ -22,11 +25,18 @@ const Settings: React.FC = () => {
         </div>
       </div>
 
-      {/* Acessibilidade (contraste, fonte, etc.) */}
+      {/* Acessibilidade */}
       <AccessibilityPanel />
 
-      {/* ✅ Controles do áudio de foco (botão play/pausar) */}
-      <FocusAudioPlayer />
+      {/* ⬇️ Áudio de foco (play/pausar, volume, seleção) */}
+      <div className="space-y-2">
+        <h2 className="text-2xl font-semibold text-text-main">
+          {t('settings.focusAudio')}
+        </h2>
+        <div className="bg-white p-6 rounded-lg shadow-lg">
+          <FocusAudioControls />
+        </div>
+      </div>
     </div>
   );
 };
