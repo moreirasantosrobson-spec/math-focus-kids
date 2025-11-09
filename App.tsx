@@ -11,7 +11,6 @@ import Review from './pages/Review';
 import Settings from './pages/Settings';
 import ParentDashboard from './pages/ParentDashboard';
 import NotFound from './pages/NotFound';
-import FocusAudioPlayer from './components/FocusAudioPlayer';
 
 import { useI18n } from './lib/useI18n'; //
 
@@ -34,7 +33,6 @@ const App: React.FC = () => {
             <Route path="*" element={<NotFound />} />
           </Routes>
 
-          <FocusAudioPlayer />
         </main>
       </div>
     </HashRouter>
