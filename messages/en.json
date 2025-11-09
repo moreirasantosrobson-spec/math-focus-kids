@@ -2,75 +2,76 @@
 {
   "appName": "Math Focus Kids",
   "dashboard": {
-    "title": "Choose a skill to practice",
-    "review": "Review Due Items",
-    "parentZone": "Parent Zone",
-    "settings": "Settings"
+    "title": "Choisissez une compétence à pratiquer",
+    "review": "Réviser les éléments à revoir",
+    "parentZone": "Espace Parents",
+    "settings": "Paramètres"
   },
   "practice": {
-    "submit": "Check",
-    "correct": "Correct!",
-    "incorrect": "Try again.",
-    "next": "Next",
-    "hint": "Hint",
-    "confidence": "How sure are you?",
-    "confidence_1": "Not sure",
-    "confidence_2": "A little sure",
-    "confidence_3": "Very sure",
-    "finalAnswer": "The correct answer was: {{answer}}"
+    "submit": "Vérifier",
+    "correct": "Correct !",
+    "incorrect": "Réessayez.",
+    "next": "Suivant",
+    "hint": "Indice",
+    "confidence": "À quel point es-tu sûr(e) ?",
+    "confidence_1": "Peu sûr(e)",
+    "confidence_2": "Un peu sûr(e)",
+    "confidence_3": "Très sûr(e)",
+    "finalAnswer": "La bonne réponse était : {{answer}}"
   },
   "settings": {
-    "title": "Settings",
-    "language": "Language",
-    "accessibility": "Accessibility",
-    "highContrast": "High Contrast",
-    "dyslexicFont": "Dyslexic Font",
-    "tts": "Text-to-Speech"
+    "title": "Paramètres",
+    "language": "Langue",
+    "focusAudio": "Audio de concentration",
+    "play": "Lire",
+    "pause": "Pause",
+    "volume": "Volume",
+    "selectTrack": "Choisir l'audio"
   },
   "parent": {
-    "title": "Parent Dashboard",
-    "accuracy": "Accuracy per Skill",
-    "difficulty": "Difficulty Progression",
-    "focusTime": "Focus Time",
-    "noData": "Not enough data to display charts."
+    "title": "Tableau de bord Parents",
+    "accuracy": "Précision par compétence",
+    "difficulty": "Progression de la difficulté",
+    "focusTime": "Temps de concentration",
+    "noData": "Pas assez de données pour afficher les graphiques."
   },
   "skills": {
-    "counting": "Counting",
+    "counting": "Compter",
     "addition": "Addition",
-    "subtraction": "Subtraction",
+    "subtraction": "Soustraction",
     "multiplication": "Multiplication",
     "division": "Division",
     "fractions": "Fractions",
-    "decimals": "Decimals",
-    "percentages": "Percentages",
-    "time": "Time",
-    "money": "Money",
-    "measurements": "Measurements"
+    "decimals": "Décimales",
+    "percentages": "Pourcentages",
+    "time": "Heure",
+    "money": "Argent",
+    "measurements": "Mesures"
   },
   "notFound": {
-    "title": "Page Not Found",
-    "message": "Oops! The page you are looking for does not exist.",
-    "goHome": "Go to Dashboard"
+    "title": "Page introuvable",
+    "message": "Oups ! La page que vous cherchez n'existe pas.",
+    "goHome": "Aller au tableau de bord"
   },
   "focusAudio": {
-    "title": "Focus Sounds",
+    "title": "Sons de concentration",
     "binaural": "Binaural",
-    "isochronic": "Isochronic",
-    "rain": "Rain",
-    "play": "Play Audio",
-    "pause": "Pause Audio",
-    "stop": "Stop Audio",
+    "isochronic": "Isochronique",
+    "rain": "Pluie",
+    "play": "Lire l'audio",
+    "pause": "Mettre en pause",
+    "stop": "Arrêter",
     "volume": "Volume",
-    "headphoneWarning": "Use headphones for best effect."
+    "headphoneWarning": "Utilisez des écouteurs pour un meilleur effet."
   },
   "pomodoro": {
-    "workPhase": "Focus",
-    "breakPhase": "Break",
-    "start": "Start Focus",
+    "workPhase": "Concentration",
+    "breakPhase": "Pause",
+    "start": "Démarrer la session",
     "pause": "Pause",
-    "reset": "Reset",
-    "resumeAudio": "Resume Sound",
-    "workDuration": "Focus Time",
-    "breakDuration": "Break Time"
+    "reset": "Réinitialiser",
+    "resumeAudio": "Reprendre le son",
+    "workDuration": "Durée de concentration",
+    "breakDuration": "Durée de pause"
   }
 }
