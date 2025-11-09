@@ -1,6 +1,6 @@
-
-import React, { useEffect } from 'react';
+import React from 'react';
 import { HashRouter, Routes, Route, Navigate } from 'react-router-dom';
+
 import { useSettingsStore } from './stores/useSettingsStore';
 import useAccessibility from './hooks/useAccessibility';
 
@@ -11,12 +11,12 @@ import Review from './pages/Review';
 import Settings from './pages/Settings';
 import ParentDashboard from './pages/ParentDashboard';
 import NotFound from './pages/NotFound';
-import FocusAudioPlayer from "./components/FocusAudioPlayer";
-import { useI18n } from '../hooks/useI18n';
-import LanguageSwitcher from "./components/LanguageSwitcher";
+import FocusAudioPlayer from './components/FocusAudioPlayer';
+
+import { useI18n } from './lib/useI18n'; // ✅ caminho corrigido
 
 const App: React.FC = () => {
-  const { t } = useI18n();
+  const { t } = useI18n(); // mantém se você usa `t` em filhos (ok)
 
   const { locale } = useSettingsStore();
   useAccessibility();
@@ -35,6 +35,8 @@ const App: React.FC = () => {
             <Route path="/:locale/parent" element={<ParentDashboard />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
+
+          {/* Player flutuante: botão play/pausa do som de foco */}
           <FocusAudioPlayer />
         </main>
       </div>
