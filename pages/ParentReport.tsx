@@ -1,22 +1,22 @@
 import React, { useMemo, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { SKILLS_LIST } from '../constants';
 import { useI18n } from '../hooks/useI18n';
-import { Link } from 'react-router-dom';
 
-// Tentamos ler os dados do progresso sem quebrar caso falte algo
-// (mantém robusto mesmo se a estrutura mudar um pouco)
+// 🔌 Tenta importar o store se existir
+// (se o arquivo não existir, o bundler acusa; se existir, ótimo)
+import useProgressStore from '../stores/useProgressStore'; // <- mantém assim
+
 type Attempt = {
   skill?: string;
   correct?: boolean;
   timestamp?: number;
   focusSeconds?: number;
 };
-declare const window: any;
 
-function useAttemptsSafe(): Attempt[] {
+// Fallback: caso o store não tenha "attempts", tentamos localStorage
+function useAttemptsFallback(): Attempt[] {
   try {
-    // Muitos projetos guardam no localStorage. Se o seu store já expõe "attempts"
-    // via Zustand, você pode trocar por esse hook. Aqui fica genérico/à prova de falhas:
     const raw = localStorage.getItem('mfk_attempts');
     if (!raw) return [];
     const arr = JSON.parse(raw);
@@ -28,7 +28,20 @@ function useAttemptsSafe(): Attempt[] {
 
 const ParentReport: React.FC = () => {
   const { t, locale } = useI18n();
-  const attempts = useAttemptsSafe();
+
+  // 1) tenta pegar do store (se sua store tiver "attempts")
+  let attemptsFromStore: Attempt[] | undefined;
+  try {
+    // @ts-ignore – se a store não tiver esse campo, evitamos crash
+    attemptsFromStore = useProgressStore?.getState?.().attempts as Attempt[] | undefined;
+  } catch {
+    attemptsFromStore = undefined;
+  }
+
+  // 2) se não tiver no store, usa fallback
+  const attempts = attemptsFromStore && Array.isArray(attemptsFromStore)
+    ? attemptsFromStore
+    : useAttemptsFallback();
 
   const perSkill = useMemo(() => {
     const map = new Map<string, { total: number; correct: number }>();
@@ -59,11 +72,9 @@ const ParentReport: React.FC = () => {
     return { total, correct, accuracy, focusSeconds };
   }, [attempts]);
 
-  // Ao abrir a rota do relatório, chamamos a impressão automaticamente
   useEffect(() => {
-    // pequena espera para renderizar tudo antes de imprimir
     const id = setTimeout(() => {
-      if (window && typeof window.print === 'function') {
+      if (typeof window !== 'undefined' && typeof window.print === 'function') {
         window.print();
       }
     }, 400);
