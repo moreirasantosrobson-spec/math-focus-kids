@@ -1,22 +1,14 @@
-// services/srs.ts
-
-/**
- * Define a estrutura de um item que está pronto ou agendado para revisão.
- */
-export type ReviewItem = {
-  /** Identificador único do item. */
-  id: string;
-  /** Carimbo de data/hora (timestamp) quando o item deve ser revisado. */
-  dueAt: number;
-};
-
-/**
- * Retorna a lista de itens que estão prontos para revisão pelo usuário.
- *
- * NOTA: Por enquanto, esta é apenas uma função stub que retorna uma lista vazia.
- * Será substituída pela lógica real do Sistema de Repetição Espaçada (SRS)
- * que usará o histórico de tentativas do usuário.
- */
-export function getDueForReviewItems(): ReviewItem[] {
-  return [];
-}
+   |                                   ^
+4  |  id : chaîne de caractères ;
+5  |  dueAt : numéro ;
+    at failureErrorWithLog (/vercel/path0/node_modules/esbuild/lib/main.js:1467:15)
+    at /vercel/path0/node_modules/esbuild/lib/main.js:736:50
+    at responseCallbacks.<computed> (/vercel/path0/node_modules/esbuild/lib/main.js:603:9)
+    at handleIncomingPacket (/vercel/path0/node_modules/esbuild/lib/main.js:658:12)
+    at Socket.readFromStdout (/vercel/path0/node_modules/esbuild/lib/main.js:581:7)
+    at Socket.emit (node:events:519:28)
+    at addChunk (node:internal/streams/readable:561:12)
+    at readableAddChunkPushByteMode (node:internal/streams/readable:512:3)
+    at Readable.push (node:internal/streams/readable:392:5)
+    at Pipe.onStreamRead (node:internal/stream_base_commons:189:23)
+Error: Command "npm run build" exited with 1
