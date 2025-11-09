@@ -1,8 +1,6 @@
-   |                                   ^
-4  |  id : chaîne de caractères ;
-5  |  dueAt : numéro ;
-    at failureErrorWithLog (/vercel/path0/node_modules/esbuild/lib/main.js:1467:15)
-    at /vercel/path0/node_modules/esbuild/lib/main.js:736:50
+                                      ^
+    dueAt : numéro   |  id : chaîne de caractères ;
+   dueAt : numéro ;
     at responseCallbacks.<computed> (/vercel/path0/node_modules/esbuild/lib/main.js:603:9)
     at handleIncomingPacket (/vercel/path0/node_modules/esbuild/lib/main.js:658:12)
     at Socket.readFromStdout (/vercel/path0/node_modules/esbuild/lib/main.js:581:7)
