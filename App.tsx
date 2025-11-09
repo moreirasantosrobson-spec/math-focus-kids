@@ -12,7 +12,7 @@ import Settings from './pages/Settings';
 import ParentDashboard from './pages/ParentDashboard';
 import NotFound from './pages/NotFound';
 import FocusAudioPlayer from "./components/FocusAudioPlayer";
-import { useI18n } from "./stores/i18n";
+import { useI18n } from '../hooks/useI18n';
 import LanguageSwitcher from "./components/LanguageSwitcher";
 
 const App: React.FC = () => {
