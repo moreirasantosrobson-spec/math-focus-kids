@@ -13,11 +13,9 @@ import ParentDashboard from './pages/ParentDashboard';
 import NotFound from './pages/NotFound';
 import FocusAudioPlayer from './components/FocusAudioPlayer';
 
-import { useI18n } from './lib/useI18n'; // ✅ caminho corrigido
+import { useI18n } from './lib/useI18n'; // ✅ caminho CORRIGIDO
 
 const App: React.FC = () => {
-  const { t } = useI18n(); // mantém se você usa `t` em filhos (ok)
-
   const { locale } = useSettingsStore();
   useAccessibility();
 
@@ -36,7 +34,6 @@ const App: React.FC = () => {
             <Route path="*" element={<NotFound />} />
           </Routes>
 
-          {/* Player flutuante: botão play/pausa do som de foco */}
           <FocusAudioPlayer />
         </main>
       </div>
