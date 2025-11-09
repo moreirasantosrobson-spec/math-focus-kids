@@ -1,10 +1,21 @@
 // services/srs.ts
 
-export type ReviewItem = { id: string; dueAt: number };
+/**
+ * Define a estrutura de um item que está pronto ou agendado para revisão.
+ */
+export type ReviewItem = {
+  /** Identificador único do item. */
+  id: string;
+  /** Carimbo de data/hora (timestamp) quando o item deve ser revisado. */
+  dueAt: number;
+};
 
 /**
- * Safe stub for the build. Returns an empty list for now.
- * We'll replace this with real SRS logic using the user's attempts.
+ * Retorna a lista de itens que estão prontos para revisão pelo usuário.
+ *
+ * NOTA: Por enquanto, esta é apenas uma função stub que retorna uma lista vazia.
+ * Será substituída pela lógica real do Sistema de Repetição Espaçada (SRS)
+ * que usará o histórico de tentativas do usuário.
  */
 export function getDueForReviewItems(): ReviewItem[] {
   return [];
