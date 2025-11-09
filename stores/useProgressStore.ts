@@ -1,28 +1,76 @@
-
 import { create } from 'zustand';
 import { Attempt } from '../types';
 import { db } from '../lib/db';
 
-interface ProgressState {
+type ProgressState = {
   attempts: Attempt[];
   isInitialized: boolean;
   initialize: () => Promise<void>;
   addAttempt: (attempt: Attempt) => Promise<void>;
+};
+
+const STORAGE_KEY = 'mfk_attempts';
+
+function readFromLocalStorage(): Attempt[] {
+  try {
+    const raw = localStorage.getItem(STORAGE_KEY);
+    if (!raw) return [];
+    const arr = JSON.parse(raw);
+    return Array.isArray(arr) ? arr : [];
+  } catch {
+    return [];
+  }
 }
 
-export const useProgressStore = create<ProgressState>((set, get) => ({
+function writeToLocalStorage(attempts: Attempt[]) {
+  try {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(attempts));
+  } catch {
+    // ignore storage errors
+  }
+}
+
+const useProgressStore = create<ProgressState>((set, get) => ({
   attempts: [],
   isInitialized: false,
+
   initialize: async () => {
     if (get().isInitialized) return;
-    const attempts = await db.attempts.toArray();
-    set({ attempts, isInitialized: true });
+
+    try {
+      // 1) tenta buscar do IndexedDB (Dexie)
+      const attemptsFromDB = await db.attempts.toArray();
+      if (attemptsFromDB && attemptsFromDB.length) {
+        set({ attempts: attemptsFromDB, isInitialized: true });
+        // mantém localStorage em sincronia
+        writeToLocalStorage(attemptsFromDB);
+        return;
+      }
+    } catch {
+      // se o IndexedDB falhar, seguimos para o fallback
+    }
+
+    // 2) fallback: tenta localStorage
+    const attemptsFromLS = readFromLocalStorage();
+    set({ attempts: attemptsFromLS, isInitialized: true });
   },
-  addAttempt: async (attempt) => {
-    await db.attempts.add(attempt);
-    set((state) => ({ attempts: [...state.attempts, attempt] }));
+
+  addAttempt: async (attempt: Attempt) => {
+    // salva no IndexedDB (se falhar, seguimos sem travar)
+    try {
+      await db.attempts.add(attempt);
+    } catch {
+      // ignore
+    }
+
+    // atualiza estado em memória
+    set((state) => {
+      const next = [...state.attempts, attempt];
+      // espelha no localStorage
+      writeToLocalStorage(next);
+      return { attempts: next };
+    });
   },
 }));
 
-// Initialize store on app load
-useProgressStore.getState().initialize();
+export default useProgressStore;
