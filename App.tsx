@@ -13,7 +13,7 @@ import ParentDashboard from './pages/ParentDashboard';
 import NotFound from './pages/NotFound';
 import FocusAudioPlayer from './components/FocusAudioPlayer';
 
-import { useI18n } from './lib/useI18n'; // ✅ caminho CORRIGIDO
+import { useI18n } from './lib/useI18n'; //
 
 const App: React.FC = () => {
   const { locale } = useSettingsStore();
