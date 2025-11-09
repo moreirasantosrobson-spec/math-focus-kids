@@ -1,19 +1,18 @@
-
 {
   "appName": "Math Focus Kids",
   "dashboard": {
     "title": "Choisissez une compétence à pratiquer",
-    "review": "Réviser les exercices",
-    "parentZone": "Zone Parent",
+    "review": "Réviser les éléments à revoir",
+    "parentZone": "Espace Parents",
     "settings": "Paramètres"
   },
   "practice": {
-    "submit": "Vérifier",
-    "correct": "Correct !",
-    "incorrect": "Essayez encore.",
+    "submit": "Valider",
+    "correct": "Correct!",
+    "incorrect": "Réessayez.",
     "next": "Suivant",
     "hint": "Indice",
-    "confidence": "À quel point êtes-vous sûr ?",
+    "confidence": "Quel est ton niveau de confiance ?",
     "confidence_1": "Pas sûr",
     "confidence_2": "Un peu sûr",
     "confidence_3": "Très sûr",
@@ -22,16 +21,17 @@
   "settings": {
     "title": "Paramètres",
     "language": "Langue",
-    "accessibility": "Accessibilité",
-    "highContrast": "Contraste élevé",
-    "dyslexicFont": "Police pour dyslexiques",
-    "tts": "Synthèse vocale"
+    "focusAudio": "Audio de concentration",
+    "play": "Jouer",
+    "pause": "Pause",
+    "volume": "Volume",
+    "selectTrack": "Sélectionner un audio"
   },
   "parent": {
-    "title": "Tableau de Bord Parent",
-    "accuracy": "Précision par Compétence",
-    "difficulty": "Progression de la Difficulté",
-    "focusTime": "Temps de Concentration",
+    "title": "Tableau de bord parent",
+    "accuracy": "Précision par compétence",
+    "difficulty": "Progression de difficulté",
+    "focusTime": "Temps de concentration",
     "noData": "Pas assez de données pour afficher les graphiques."
   },
   "skills": {
@@ -43,34 +43,34 @@
     "fractions": "Fractions",
     "decimals": "Décimales",
     "percentages": "Pourcentages",
-    "time": "L'heure",
+    "time": "Temps",
     "money": "Argent",
     "measurements": "Mesures"
   },
   "notFound": {
-    "title": "Page non trouvée",
-    "message": "Oups ! La page que vous recherchez n'existe pas.",
-    "goHome": "Aller au tableau de bord"
+    "title": "Page introuvable",
+    "message": "Oups! La page que vous recherchez n'existe pas.",
+    "goHome": "Retour au tableau de bord"
   },
   "focusAudio": {
-    "title": "Sons de Concentration",
+    "title": "Sons pour se concentrer",
     "binaural": "Binaural",
-    "isochronic": "Isochrone",
+    "isochronic": "Isochronique",
     "rain": "Pluie",
     "play": "Jouer l'audio",
-    "pause": "Mettre l'audio en pause",
-    "stop": "Arrêter l'audio",
+    "pause": "Pause",
+    "stop": "Arrêter",
     "volume": "Volume",
-    "headphoneWarning": "Utilisez un casque pour un meilleur effet."
+    "headphoneWarning": "Utilisez des écouteurs pour un meilleur effet."
   },
   "pomodoro": {
     "workPhase": "Concentration",
     "breakPhase": "Pause",
-    "start": "Démarrer Focus",
+    "start": "Commencer",
     "pause": "Pause",
     "reset": "Réinitialiser",
-    "resumeAudio": "Reprendre le Son",
-    "workDuration": "Temps de Focus",
-    "breakDuration": "Temps de Pause"
+    "resumeAudio": "Reprendre l'audio",
+    "workDuration": "Temps de concentration",
+    "breakDuration": "Temps de pause"
   }
 }
